@@ -89,11 +89,11 @@ async function logout() {
   await supabaseClient.auth.signOut();
 
   dashboard.style.display = "none";
+  newCaseCard.style.display = "none";
   loginCard.style.display = "block";
 
   passwordInput.value = "";
 }
-
 
 function showNewCase(){
 
