@@ -19,6 +19,20 @@ const loginMsg = document.getElementById("loginMsg");
 const btnLogin = document.getElementById("btnLogin");
 const btnLogout = document.getElementById("btnLogout");
 
+
+const btnNewCase = document.getElementById("btnNewCase");
+
+const newCaseCard = document.getElementById("newCaseCard");
+
+const btnBackDashboard =
+  document.getElementById("btnBackDashboard");
+
+const btnSubmitCase =
+  document.getElementById("btnSubmitCase");
+
+const caseMsg =
+  document.getElementById("caseMsg");
+
 btnLogin.addEventListener("click", login);
 btnLogout.addEventListener("click", logout);
 
@@ -53,6 +67,23 @@ async function login() {
   console.log("Login OK", data);
 }
 
+
+btnNewCase.addEventListener(
+  "click",
+  showNewCase
+);
+
+btnBackDashboard.addEventListener(
+  "click",
+  showDashboard
+);
+
+btnSubmitCase.addEventListener(
+  "click",
+  submitCase
+);
+
+
 async function logout() {
 
   await supabaseClient.auth.signOut();
@@ -64,15 +95,95 @@ async function logout() {
 }
 
 
-const btnNewCase = document.getElementById("btnNewCase");
+function showNewCase(){
 
-const newCaseCard = document.getElementById("newCaseCard");
+  dashboard.style.display = "none";
 
-const btnBackDashboard =
-  document.getElementById("btnBackDashboard");
+  newCaseCard.style.display = "block";
+}
 
-const btnSubmitCase =
-  document.getElementById("btnSubmitCase");
+function showDashboard(){
 
-const caseMsg =
-  document.getElementById("caseMsg");
+  newCaseCard.style.display = "none";
+
+  dashboard.style.display = "block";
+}
+
+
+async function submitCase(){
+
+  caseMsg.textContent = "";
+
+  const title =
+    document.getElementById("caseTitle").value;
+
+  if(!title){
+
+    caseMsg.textContent =
+      "Titel mangler";
+
+    return;
+  }
+
+  const modality =
+    document.getElementById("caseModality").value;
+
+  const organ =
+    document.getElementById("caseOrgan").value;
+
+  const clinical_context =
+    document.getElementById("clinicalContext").value;
+
+  const error_description =
+    document.getElementById("errorDescription").value;
+
+  const correct_interpretation =
+    document.getElementById("correctInterpretation").value;
+
+  const prevention =
+    document.getElementById("prevention").value;
+
+  const learning_points =
+    document.getElementById("learningPoints").value;
+
+  const anonymous =
+    document.getElementById("anonymous").checked;
+
+  const contact_allowed =
+    document.getElementById("contactAllowed").checked;
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .from("cases")
+    .insert([
+      {
+        title,
+        modality,
+        organ,
+        clinical_context,
+        error_description,
+        correct_interpretation,
+        prevention,
+        learning_points,
+        anonymous,
+        contact_allowed,
+        status:"afventer"
+      }
+    ]);
+
+  if(error){
+
+    console.error(error);
+
+    caseMsg.textContent =
+      error.message;
+
+    return;
+  }
+
+  caseMsg.textContent =
+    "Case gemt";
+
+}
