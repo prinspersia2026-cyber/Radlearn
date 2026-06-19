@@ -1,3 +1,5 @@
+alert("app.js virker");
+
 const SUPABASE_URL = "https://giqntjpqmmundrqropjv.supabase.co";
 
 const SUPABASE_KEY =
