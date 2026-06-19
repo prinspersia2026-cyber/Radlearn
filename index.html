@@ -59,6 +59,63 @@
 
 </div>
 
+<div id="newCaseCard" style="display:none;">
+
+  <h2>Ny læringscase</h2>
+
+  <input id="caseTitle" placeholder="Titel">
+
+  <select id="caseModality">
+    <option value="CT">CT</option>
+    <option value="MR">MR</option>
+    <option value="Røntgen">Røntgen</option>
+    <option value="UL">UL</option>
+    <option value="PET/CT">PET/CT</option>
+    <option value="Andet">Andet</option>
+  </select>
+
+  <select id="caseOrgan">
+    <option value="Hjerne">Hjerne</option>
+    <option value="Hoved/Hals">Hoved/Hals</option>
+    <option value="Thorax">Thorax</option>
+    <option value="Abdomen">Abdomen</option>
+    <option value="Bækken">Bækken</option>
+    <option value="Columna">Columna</option>
+    <option value="MSK">MSK</option>
+    <option value="Kar">Kar</option>
+    <option value="Andet">Andet</option>
+  </select>
+
+  <h3>Fejltype</h3>
+  <label><input type="checkbox" class="errorType" value="Perceptuel"> Perceptuel</label>
+  <label><input type="checkbox" class="errorType" value="Kognitiv"> Kognitiv</label>
+  <label><input type="checkbox" class="errorType" value="Kommunikationsfejl"> Kommunikationsfejl</label>
+  <label><input type="checkbox" class="errorType" value="Systemfejl"> Systemfejl</label>
+
+  <textarea id="clinicalContext" placeholder="Hvorfor blev undersøgelsen udført?"></textarea>
+  <textarea id="errorDescription" placeholder="Hvad gik galt?"></textarea>
+  <textarea id="correctInterpretation" placeholder="Korrekt fortolkning"></textarea>
+  <textarea id="prevention" placeholder="Hvordan kunne fejlen forebygges?"></textarea>
+  <textarea id="learningPoints" placeholder="Læringspunkter"></textarea>
+
+  <label>
+    <input type="checkbox" id="anonymous" checked>
+    Indsend anonymt
+  </label>
+
+  <label>
+    <input type="checkbox" id="contactAllowed">
+    Administrator må kontakte mig
+  </label>
+
+  <button id="btnSubmitCase">Indsend læringscase</button>
+  <button id="btnBackDashboard">Tilbage</button>
+
+  <p id="caseMsg"></p>
+
+</div>
+  
+
 <script src="app.js"></script>
 
 </body>
