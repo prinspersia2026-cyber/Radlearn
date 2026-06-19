@@ -62,3 +62,17 @@ async function logout() {
 
   passwordInput.value = "";
 }
+
+
+const btnNewCase = document.getElementById("btnNewCase");
+
+const newCaseCard = document.getElementById("newCaseCard");
+
+const btnBackDashboard =
+  document.getElementById("btnBackDashboard");
+
+const btnSubmitCase =
+  document.getElementById("btnSubmitCase");
+
+const caseMsg =
+  document.getElementById("caseMsg");
