@@ -24,3 +24,21 @@ button{
     padding:10px 15px;
     cursor:pointer;
 }
+
+textarea{
+    width:100%;
+    min-height:90px;
+    padding:10px;
+    margin:10px 0;
+}
+
+select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+#newCaseCard{
+    max-width:700px;
+    margin:auto;
+}
